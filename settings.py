@@ -1,18 +1,15 @@
 # Django settings for donations project.
 
+import os
+
 try:
     import local
 except ImportError:
     import example_local as local
-from django.core.urlresolvers import reverse
-import itertools
-import os
 
 BASE_DIR = os.path.dirname(__file__)
 
 DEBUG = local.DEBUG
-TEMPLATE_DEBUG = DEBUG
-TEMPLATE_STRING_IF_INVALID = 'Invalid Variable: %s'
 
 ALLOWED_HOSTS = local.ALLOWED_HOSTS
 
@@ -119,16 +116,28 @@ ROOT_URLCONF = 'urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'wsgi.application'
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    "django.contrib.auth.context_processors.auth",
-    "django.core.context_processors.debug",
-    "django.core.context_processors.i18n",
-    "django.core.context_processors.media",
-    "django.core.context_processors.static",
-    "django.core.context_processors.request",
-    "django.contrib.messages.context_processors.messages",
-    "tracker.context_processors.booleans",
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.debug",
+                "django.template.context_processors.i18n",
+                "django.template.context_processors.media",
+                "django.template.context_processors.static",
+                "django.template.context_processors.request",
+                "tracker.context_processors.booleans",
+            ],
+        },
+        'string_if_invalid': 'Invalid Variable: %s',
+    },
+]
 
 INSTALLED_APPS = (
     'django.contrib.auth',
