@@ -1,5 +1,8 @@
 import os
 
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
@@ -12,6 +15,9 @@ DOMAIN = 'your.domain.name'
 
 # Leave this as true during development, so that you get error pages describing what went wrong
 DEBUG = True
+
+# Site name for admin headers.  Change this for your own event.
+SITE_NAME = 'Django'
 
 # You can add your e-mail if you want to receive notifications of failures I think , but its probably not a good idea
 ADMINS = [
@@ -32,14 +38,15 @@ TIME_ZONE = 'America/New_York'
 # set this to your site's prefix, This allows handling multiple deployments from a common url base
 SITE_PREFIX = '/'
 
-SECRET_KEY = 'IHaveNoIdeaWhatThisIsOrWhatItDoes'
+# Generate a random value for this for your own site!  Used in session cookie generation, and some other things.
+SECRET_KEY = 'GenerateARandomValueForThisForYourOwnSite'
 
 STATICFILES_DIRS = (
   os.path.abspath('tracker/static/'),
 )
 
 STATIC_URL = "/static" + SITE_PREFIX
-STATIC_ROOT = "/var/www/static" + SITE_PREFIX
+STATIC_ROOT = os.path.join(BASE_DIR, 'static', SITE_PREFIX)
 
 HAS_GDOC = False
 # GDOC_USERNAME = 'person@gmail.com'

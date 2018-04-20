@@ -27,6 +27,9 @@ LOGIN_URL = SITE_PREFIX + 'user/login/'
 LOGIN_REDIRECT_URL = SITE_PREFIX + 'user/index/'
 LOGOUT_REDIRECT_URL = SITE_PREFIX + 'index/'
 
+# Site name for admin headers
+SITE_NAME = local.SITE_NAME
+
 # Append slash seems to be the way to go overall
 APPEND_SLASH = True
 
@@ -100,14 +103,16 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
 )
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.common.CommonMiddleware',
-)
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
 
 SESSION_COOKIE_NAME = 'tracker_session'
 
@@ -135,7 +140,6 @@ TEMPLATES = [
                 "tracker.context_processors.booleans",
             ],
         },
-        'string_if_invalid': 'Invalid Variable: %s',
     },
 ]
 

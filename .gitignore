@@ -103,4 +103,5 @@ ENV/
 # Project-specific excludes
 .idea
 db.sqlite*
+local.py
 /static
