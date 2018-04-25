@@ -151,6 +151,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'bootstrap3',
     'post_office',
     'paypal.standard.ipn',
     'tracker',
