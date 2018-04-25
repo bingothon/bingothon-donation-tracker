@@ -46,7 +46,7 @@ STATICFILES_DIRS = (
 )
 
 STATIC_URL = "/static" + SITE_PREFIX
-STATIC_ROOT = os.path.join(BASE_DIR, 'static', SITE_PREFIX)
+STATIC_ROOT = os.path.join(BASE_DIR, 'static', SITE_PREFIX.lstrip('/'))
 
 HAS_GDOC = False
 # GDOC_USERNAME = 'person@gmail.com'
