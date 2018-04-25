@@ -1,5 +1,5 @@
 [submodule "tracker_ui"]
-	path = tracker-ui
+	path = tracker_ui
 	url = https://github.com/DorkmasterFlek/donation-tracker-ui.git
 [submodule "tracker"]
 	path = tracker
