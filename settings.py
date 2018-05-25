@@ -195,6 +195,9 @@ if local.HAS_GOOGLE_APP_ID:
 if local.HAS_GIANTBOMB_API_KEY:
   GIANTBOMB_API_KEY = local.GIANTBOMB_API_KEY
 
+# Flag for new donate page layout.
+USE_NEW_DONATE_LAYOUT = local.USE_NEW_DONATE_LAYOUT
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.

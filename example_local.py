@@ -67,3 +67,7 @@ HAS_GIANTBOMB_API_KEY = False
 # GIANTBOMB_API_KEY = 'Itsreallynicetohaveanditsfreetomakeanaccountbutnotneccessary'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+# Are we using the revamped donate page layout?
+# The new layout has a revamped display of donation incentives and bid wars.
+USE_NEW_DONATE_LAYOUT = False
