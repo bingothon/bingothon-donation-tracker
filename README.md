@@ -1,5 +1,7 @@
 # donation-tracker-toplevel
 
+This is the top level of my fork of the GamesDoneQuick donation tracker.  This version has been updated for Python 3 and Django 2.0+, as well as adding some new functionality we wanted for our marathons such as Horaro schedule syncing for events, the option to automatically count eligible donations towards ticketed prizes, and an optional revamped donation page layout with responsive styling.
+
 Contains the settings and configuration for creating a simple deploy of the tracker.
 
 In order to deploy the tracker, some boilerplate code is neccessary for configuration and management. The goal of this repository is to make doing so as simple as possible for any given user to get started developing on the tracker.
@@ -7,13 +9,12 @@ In order to deploy the tracker, some boilerplate code is neccessary for configur
 ## Getting a Working Copy of the Tracker
 
 1. [Install Git](http://www.git-scm.com/download). I'm assuming if you're here, you know enough about git and version control to get started. You can check if you have git with the command `which git`, and which version you have with `git --version`.
-1. [Install Python](https://www.python.org/downloads/). Currently, the tracker only supports version 2.6+ for now. Thus, getting whatever the latest 2.7 version is ideal. You can determine if Python is installed with the command `which python`, and which version of Python you have with the command `python -V`. Python version 3.x is **not** supported by our code at this time. If someone wants that to change, they will have to do the legwork themselves, we are not in a position to support both versions at this time.
+1. [Install Python](https://www.python.org/downloads/). This version of the tracker requires Python 3.4+ and Django 2.0+.  You can determine if Python is installed with the command `which python`, and which version of Python you have with the command `python -V`.  It may be installed as `python3` depending on your system.
 1. [Install pip](https://pip.pypa.io/en/stable/installing/) This is the package management system we use with the tracker, and its generally the best option for getting Python packages.
 1. [Install node](https://nodejs.org/en/download/). *Optional* If you want to use or develop on the fancy new Javascript UI (which right now only supports the schedule editor) you'll need this. Right now only v5.x is supported, but others may work.
 1. [Install direnv](https://github.com/direnv/direnv). *Optional, Linux/OSX only* This will help set up an isolated development environment.
 1. Clone this repository, typically I put it in a folder called `donations`, which is the path to which this repo will be referred for the remainder of these instructions:
-    ```> git clone https://github.com/GamesDoneQuick/donation-tracker-toplevel.git donations```
-1. Make an empty directory under `donations` called `db`. This is where you can keep the working copy of your sqlite database. By default, the settings are such that one called `db/testdb` will be created, but of course you can modify that to suit your needs.
+    ```> git clone https://github.com/DorkmasterFlek/donation-tracker-toplevel.git donations```
 1. Make a copy of `example_local.py` under `donations`, and call it `local.py`. This is where you will enter any deployment-specific settings for your instance of the website.
     ```> cp example_local.py local.py```
     1. (optional) Change the `NAME` field under the `DATABASES` variable to point at a different location if you wish.
@@ -65,16 +66,10 @@ Note that if you change the port that the server is running on you'll need to ed
 
 ## Server deployment
 
-There are far too many different ways to deploy the server to go over every possibility here, so you should start with [Deploying Django](https://docs.djangoproject.com/en/1.9/howto/deployment/).
+There are far too many different ways to deploy the server to go over every possibility here, so you should start with [Deploying Django](https://docs.djangoproject.com/en/2.0/howto/deployment/).
 
 Note that node is NOT required to run the server in a production environment, it is ONLY needed to build the Javascript UI package. You can build it locally and simply copy the necessary files to your server. *Don't forget the manifest file!*
 
 ## Docker (experimental, development environments only)
 
-Alternately, you can use [Docker](https://www.docker.com/). The packaged Dockerfile should build an isolated development environment for you, regardless of what OS you're on. While this is potentially the easiest to set up, it also has the most overhead. Note that this container is *NOT* intended for production use.
-
-You can also download the latest image from [Dockerhub](https://hub.docker.com/r/gamesdonequick/donation-tracker-toplevel/).
-
-## Contact
-
-If you have any questions, or would like some help getting set-up, or are interested in contributing, please don't hesitate to contact us at [tracker@gamesdonequick.com](tracker@gamesdonequick.com).
+I haven't tested the Docker deployment at all with this, as we don't use Docker for our deployment.  This was experimental in the GDQ version, so if you want to mess with it, do so at your own risk.
