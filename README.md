@@ -2,7 +2,7 @@
 
 This is the top level of my fork of the GamesDoneQuick donation tracker.  This version has been updated for Python 3 and Django 2.0+, as well as adding some new functionality we wanted for our marathons such as Horaro schedule syncing for events, the option to automatically count eligible donations towards ticketed prizes, and an optional revamped donation page layout with responsive styling.
 
-Contains the settings and configuration for creating a simple deploy of the tracker.
+As a result of the upgrades, I found the old migrations were incompatible at least for PostgreSQL due to one of the previous migrations changing a foreign key on an existing field.  The migrations have been regenerated from scratch for Django 2.0+ so if you're running some version of the GDQ tracker and you want to upgrade to this, you'll need to basically do a fresh install and dump/migrate your database records if you want to maintain them.  Sorry for the inconvenience!
 
 In order to deploy the tracker, some boilerplate code is neccessary for configuration and management. The goal of this repository is to make doing so as simple as possible for any given user to get started developing on the tracker.
 
