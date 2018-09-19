@@ -1,6 +1,6 @@
 [submodule "tracker_ui"]
-	path = tracker_ui
-	url = https://github.com/DorkmasterFlek/donation-tracker-ui.git
+    path = tracker_ui
+    url = https://github.com/PowerUpWithPride/donation-tracker-ui.git
 [submodule "tracker"]
-	path = tracker
-	url = https://github.com/DorkmasterFlek/donation-tracker.git
+    path = tracker
+    url = https://github.com/PowerUpWithPride/donation-tracker.git
