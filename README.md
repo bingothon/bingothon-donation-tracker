@@ -66,7 +66,7 @@ Note that if you change the port that the server is running on you'll need to ed
 
 ## Server deployment
 
-There are far too many different ways to deploy the server to go over every possibility here, so you should start with [Deploying Django](https://docs.djangoproject.com/en/2.0/howto/deployment/).
+There are far too many different ways to deploy the server to go over every possibility here, so you should start with [Deploying Django](https://docs.djangoproject.com/en/dev/howto/deployment/).
 
 Note that node is NOT required to run the server in a production environment, it is ONLY needed to build the Javascript UI package. You can build it locally and simply copy the necessary files to your server. *Don't forget the manifest file!*
 
