@@ -14,7 +14,7 @@ In order to deploy the tracker, some boilerplate code is neccessary for configur
 1. [Install node](https://nodejs.org/en/download/). *Optional* If you want to use or develop on the fancy new Javascript UI (which right now only supports the schedule editor) you'll need this. Right now only v5.x is supported, but others may work.
 1. [Install direnv](https://github.com/direnv/direnv). *Optional, Linux/OSX only* This will help set up an isolated development environment.
 1. Clone this repository, typically I put it in a folder called `donations`, which is the path to which this repo will be referred for the remainder of these instructions:
-    ```> git clone https://github.com/DorkmasterFlek/donation-tracker-toplevel.git donations```
+    ```> git clone https://github.com/PowerUpWithPride/donation-tracker-toplevel.git donations```
 1. Make a copy of `example_local.py` under `donations`, and call it `local.py`. This is where you will enter any deployment-specific settings for your instance of the website.
     ```> cp example_local.py local.py```
     1. (optional) Change the `NAME` field under the `DATABASES` variable to point at a different location if you wish.
