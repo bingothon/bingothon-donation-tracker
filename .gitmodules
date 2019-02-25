@@ -2,5 +2,5 @@
     path = tracker_ui
     url = https://github.com/PowerUpWithPride/donation-tracker-ui.git
 [submodule "tracker"]
-    path = tracker
-    url = https://github.com/PowerUpWithPride/donation-tracker.git
+	path = tracker
+	url = https://github.com/bingothon/tracker.git
