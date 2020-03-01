@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 
 from django.contrib import admin
+from django.urls import path
 
 import tracker.urls
 import ajax_select.urls
@@ -10,9 +11,9 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles import views
 
 urlpatterns = [
-    url(r'^tracker/', include(tracker.urls)),
-    url(r'^admin/lookups/', include(ajax_select.urls)),
-    url(r'^admin/', include(admin.site.urls)),
+    path('tracker/', include(tracker.urls)),
+    path('admin/lookups/', include(ajax_select.urls)),
+    path('admin/', admin.site.urls)
 ]
 
 if settings.MEDIA_URL:
@@ -20,5 +21,5 @@ if settings.MEDIA_URL:
 
 if settings.DEBUG:
     urlpatterns += [
-        url(r'^static/(?P<path>.*)$', views.serve),
+        path('static/<path:path>', views.serve),
     ]
