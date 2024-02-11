@@ -134,7 +134,6 @@ INSTALLED_APPS = [
     'paypal.standard.ipn',
     'tracker',
     'timezone_field',
-    'ajax_select',
     'mptt',
 ] + env.list('ADDITIONAL_APPS', default=[])
 
