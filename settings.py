@@ -69,7 +69,7 @@ if env.str('STATIC_URL', default=None):
 
 # Additional locations of static files
 STATICFILES_DIRS = (
-    os.path.abspath('tracker/static/'),
+    os.path.abspath('donation-tracker/tracker/static/'),
 )
 
 # List of finder classes that know how to find static files in
@@ -97,7 +97,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
-                "tracker.context_processors.booleans",
+                # "tracker.context_processors.booleans",
             ],
             'debug': DEBUG,
             'string_if_invalid': 'Invalid Variable: %s',
@@ -120,7 +120,10 @@ SESSION_COOKIE_NAME = 'tracker_session'
 ROOT_URLCONF = 'urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'wsgi.application'
+# WSGI_APPLICATION = 'wsgi.application'
+
+ASGI_APPLICATION = 'routing.application'
+CHANNEL_LAYERS = {'default': {'BACKEND': 'channels.layers.InMemoryChannelLayer'}}
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -130,20 +133,28 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'channels',
     'post_office',
     'paypal.standard.ipn',
+    # 'rest_framework',
     'tracker',
     'timezone_field',
     'mptt',
 ] + env.list('ADDITIONAL_APPS', default=[])
 
+if DEBUG:
+    # for local only
+    INSTALLED_APPS.insert(0, 'daphne')
+
 # Pull in the tracker's lookup channels
-from tracker.ajax_lookup_channels import AJAX_LOOKUP_CHANNELS
+# from tracker.ajax_lookup_channels import AJAX_LOOKUP_CHANNELS
 
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'tracker.auth.EmailLoginAuthBackend',
+    # 'tracker.auth.EmailLoginAuthBackend',
 )
+
+TRACKER_PAGINATION_LIMIT = 50
 
 AUTH_PROFILE_MODULE = 'tracker.UserProfile'
 
@@ -174,8 +185,8 @@ if env.bool('HAS_AWS_FILE_STORAGE', default=False):
     AWS_STORAGE_BUCKET_NAME = env.str('AWS_STORAGE_BUCKET_NAME')
     AWS_DEFAULT_ACL = env.str('AWS_DEFAULT_ACL')
 
-SWEEPSTAKES_URL = env.str('SWEEPSTAKES_URL', default='')
-PRIVACY_POLICY_URL = env.str('PRIVACY_POLICY_URL', default='')
+TRACKER_SWEEPSTAKES_URL = env.str('SWEEPSTAKES_URL', default='')
+TRACKER_PRIVACY_POLICY_URL = env.str('PRIVACY_POLICY_URL', default='')
 GOOGLE_ANALYTICS = env.tuple('GOOGLE_ANALYTICS', default=None)
 
 TRACKER_PAGINATION_LIMIT = env.int('TRACKER_PAGINATION_LIMIT', default=500)

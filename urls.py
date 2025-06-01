@@ -10,8 +10,8 @@ from django.conf.urls.static import static
 from django.contrib.staticfiles import views
 
 urlpatterns = [
-    path('tracker/', include(tracker.urls)),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('tracker/', include(tracker.urls, namespace='tracker')),
 ]
 
 if settings.MEDIA_URL:
