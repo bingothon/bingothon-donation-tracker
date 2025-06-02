@@ -191,6 +191,8 @@ GOOGLE_ANALYTICS = env.tuple('GOOGLE_ANALYTICS', default=None)
 
 TRACKER_PAGINATION_LIMIT = env.int('TRACKER_PAGINATION_LIMIT', default=500)
 
+TRACKER_THEME = env.str('TRACKER_THEME')
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
