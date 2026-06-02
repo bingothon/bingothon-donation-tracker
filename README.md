@@ -1,5 +1,15 @@
 # donation-tracker-toplevel
 
+## Updating the tracker on the bingothon server
+
+Make sure you have the newest version with `git pull` **in the donation-tracker** folder.
+
+If any javascript/react stuff changed, run `update-js.sh` (can be skipped if there are no js related changes).
+
+Run `update.sh` to update the actual donation tracker backend.
+
+Run `sudo systemctl restart donation-tracker.service` to restart the tracker.
+
 ## AS OF 2019/11/01 PYTHON 3.6/3.7 IS REQUIRED (3.8 IS UNTESTED)
 
 Contains the settings and configuration for creating a simple deploy of the tracker.

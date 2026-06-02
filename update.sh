@@ -2,9 +2,6 @@
 
 pushd donation-tracker
 
-# yarn
-yarn build
-
 rm -r dist
 python3 setup.py bdist_wheel
 pip install --force-reinstall dist/django_donation_tracker-*-py3-none-any.whl
